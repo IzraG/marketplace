@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateCheckoutHeadersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id('product_id');
-            $table->string('nama_produk');
-            $table->string('gambar_produk');
-            $table->text('deskripsi_produk');
-            $table->integer('harga');
+        Schema::create('checkouts', function (Blueprint $table) {
+            $table->id("id_checkout");
+            $table->date("checkout_date");
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('checkouts');
     }
 }
