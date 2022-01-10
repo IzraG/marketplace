@@ -13,7 +13,7 @@ class CreateCheckoutHeadersTable extends Migration
      */
     public function up()
     {
-        Schema::create('checkouts', function (Blueprint $table) {
+        Schema::create('checkout_headers', function (Blueprint $table) {
             $table->id("id_checkout");
             $table->date("checkout_date");
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateCheckoutHeadersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checkouts');
+        Schema::dropIfExists('checkout_headers');
     }
 }

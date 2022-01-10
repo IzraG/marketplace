@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Cart;
 use App\Models\CheckoutHeader;
+use App\Models\CheckoutDetail;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -22,14 +24,15 @@ class CheckoutController extends Controller
     function buy(){
         
         
-        $cart = Cart::All()->where('users_id', auth()->user()->id);
+        $cart = DB::table("carts")->where('users_id', auth()->user()->id)->get();
         $id_checkout = CheckoutHeader::tambah_checkout();
-        foreach($cart as $ct=> $val){
-            $id_item=$ct;
+        foreach($cart as $ct){
+          
+            $id_item=$ct->products_id;
      
-            $total=$val["total"];
+            $total=$ct->jumlah;
             CheckoutDetail::tambah_checkout_detail($id_item,$id_checkout,$total);
         }
-        return redirect("/");
+         return redirect("/");
     }
 }

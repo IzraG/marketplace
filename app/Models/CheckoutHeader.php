@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class CheckoutHeader extends Model
 {
-    protected $table ="checkouts";
+    protected $table ="checkout_headers";
     protected $primaryKey = "id_checkout";
 
-    protected $dates =[
-        'checkout_date'  => 'date:Y-m-d',
+    protected $fillable =[
+        'checkout_date'
     ];
 
     static function tambah_checkout(){
         $data= CheckoutHeader::create([
-            "checkout_date"-> date("Y-m-d"),
+            "checkout_date"=> date("Y-m-d"),
         ]);
 
         return $data->id_checkout;

@@ -15,8 +15,8 @@ class CheckoutDetailFk extends Migration
     {
         Schema::table('checkout_details', function (Blueprint $table) {
 
-            $table->foreign("product_id")->references("product_id")->on("products")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign("id_checkout")->references("id_checkout")->on("checkouts")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("products_id")->references("products_id")->on("products")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("id_checkout")->references("id_checkout")->on("checkout_headers")->onDelete("cascade")->onUpdate("cascade");
 
         });
         //

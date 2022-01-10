@@ -15,7 +15,7 @@ class CreateCheckoutDetails extends Migration
     {
         Schema::create('checkout_details', function (Blueprint $table) {
             $table->id("id_checkout_detail");
-            $table->foreignId("product_id");
+            $table->foreignId("products_id");
             $table->foreignId("id_checkout");
             $table->integer("total");
             $table->timestamps();
